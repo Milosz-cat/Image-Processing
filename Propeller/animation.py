@@ -1,5 +1,4 @@
 from PIL import Image, ImageSequence
-import matplotlib.pyplot as plt
 
 image_old = 'animation_5_480.gif' #choose animation
 im = Image.open(image_old)

@@ -56,7 +56,6 @@ def Demosaic(image, mask):
     return result
 
 original = cv2.cvtColor(cv2.imread("./4demosaicking.bmp"), cv2.COLOR_BGR2RGB)
-
 bayer_kernel = np.array([np.ones((2, 2)) * w for w in [1, 1/2, 1]])
 
 xtrans_mask = np.array([[0   , 0   , 0   , 0   , 0   , 0],
@@ -73,11 +72,17 @@ Mosaic_Xtrans(original)
 Demosaic(cv2.imread("./Bayer.bmp"), bayer_kernel).save('Bayer_Demo.bmp')
 Demosaic(cv2.imread("./X_Trans.bmp"), xtrans_kernel).save('X_Trans_Demo.bmp')
 
-Image.fromarray(cv2.subtract(original, cv2.imread("./Bayer_Demo.bmp"))).save('Bayer_Diff.bmp')
-Image.fromarray(cv2.subtract(original, cv2.imread("./X_Trans_Demo.bmp"))).save('X_Trans_Diff.bmp')
+Image.fromarray(cv2.subtract(original, cv2.imread("./Bayer_Demo.bmp"))*2).save('Bayer_Diff.bmp')
+Image.fromarray(cv2.subtract(original, cv2.imread("./X_Trans_Demo.bmp"))*2).save('X_Trans_Diff.bmp')
 
-cv2.imshow('Bayer', np.concatenate((cv2.imread("./Bayer.bmp"), cv2.imread("./Bayer_Demo.bmp"), cv2.imread("./Bayer_Diff.bmp")), axis=1))
-cv2.imshow('X-Trans', np.concatenate((cv2.imread("./X_Trans.bmp"), cv2.imread("./X_Trans_Demo.bmp"), cv2.imread("./X_Trans_Diff.bmp")), axis=1))
+Bayer_ALL = np.concatenate((cv2.imread("./Bayer.bmp"), cv2.imread("./Bayer_Demo.bmp"), cv2.imread("./Bayer_Diff.bmp")), axis=1)
+X_Trans_ALL = np.concatenate((cv2.imread("./X_Trans.bmp"), cv2.imread("./X_Trans_Demo.bmp"), cv2.imread("./X_Trans_Diff.bmp")), axis=1)
+
+cv2.imwrite('Bayer_ALL.bmp', Bayer_ALL)
+cv2.imwrite('X_Trans_ALL.bmp', X_Trans_ALL)
+
+print('Bayer diff: ', np.square(np.subtract(cv2.imread("./4demosaicking.bmp"), cv2.imread("./Bayer_Demo.bmp"))).mean())
+print('X-Trans diff: ', np.square(np.subtract(cv2.imread("./4demosaicking.bmp"), cv2.imread("./X_Trans_Demo.bmp"))).mean())
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
