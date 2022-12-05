@@ -65,7 +65,7 @@ img_noise = cv2.imread("./Leopard-with-noise.jpg")
 original = cv2.imread("./Leopard-original.jpg")  
 
 splot_img = splot(img_noise)
-median_img = median(img_noise)
+median_img = median(img_noise) # takes a lot of time
 bilateral_img = cv2.bilateralFilter(img_noise, 25, 100, 100)
 
 cv2.imwrite('Leo_bilateral_filter.jpg', bilateral_img)
