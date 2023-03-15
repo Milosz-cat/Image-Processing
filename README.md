@@ -1,29 +1,31 @@
-# Django Quiz App
+# Image Processing
 
 Four image processing programs.
 
 ## Propeller
 
-![App Screenshot](https://github.com/Milosz-cat/Quiz-App/blob/main/screenshots/Screenshot%20from%202023-03-11%2015-59-48.png)
+![App Gif](https://github.com/Milosz-cat/Image-Processing/blob/master/Foto%20and%20gifs/rolling_shutter_3_240_2.gif)
 
 Creating a propeller animation using a sine graph, then illustrating the aliasing effect using a sequential sensor.
 
 
 ## Demosaic
 
-![App Screenshot](https://github.com/Milosz-cat/Quiz-App/blob/main/screenshots/Screenshot%20from%202023-03-11%2015-59-48.png)
+![App Photo](https://github.com/Milosz-cat/Image-Processing/blob/master/Foto%20and%20gifs/Bayer_ALL.bmp)
 
 Overlaying the Bayer mosaic and X-trans on the image and then demosaicing the images using an algorithm and comparing the results.
 
 ## Rotation
 
-![App Screenshot](https://github.com/Milosz-cat/Quiz-App/blob/main/screenshots/Screenshot%20from%202023-03-11%2015-59-48.png)
+![App Photo](https://github.com/Milosz-cat/Image-Processing/blob/master/Foto%20and%20gifs/Rotated123.bmp)
 
 Rotating images without using ready-made functions and filling gaps using nearest neighbor interpolation.
 
 ## Soft
 
-![App Screenshot](https://github.com/Milosz-cat/Quiz-App/blob/main/screenshots/Screenshot%20from%202023-03-11%2015-59-48.png)
+![App Photo](https://github.com/Milosz-cat/Image-Processing/blob/master/Foto%20and%20gifs/Leopard-with-noise.jpg)
+
+![App Photo](https://github.com/Milosz-cat/Image-Processing/blob/master/Foto%20and%20gifs/Leo_splot_filter.jpg)
 
 Comparison of the operation of 3 different noise filters on photos.
 
